@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.it.gallery.galleryMapper">
+	<select id="readAll" resultType="org.it.gallery.GalleryDto">
+		select * from gallery order by num desc
+	</select>
+	<insert id="regOne" parameterType="org.it.gallery.GalleryDto">
+		insert into gallery values
+		(gallery_seq.nextval, #{title, jdbcType=VARCHAR}, 
+		#{password, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR}, SYSDATE,
+		#{imgAbsPath, jdbcType=VARCHAR}, #{imgUrlPath, jdbcType=VARCHAR},
+		#{th_imgAbsPath, jdbcType=VARCHAR}, #{th_imgUrlPath, jdbcType=VARCHAR})
+	</insert>
+	
+	
+</mapper>
